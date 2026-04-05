@@ -113,7 +113,7 @@ export default async function PatientDashboard() {
         </div>
         
         {patient && (
-          <div className="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15 text-sm font-medium text-on-surface text-center overflow-x-auto whitespace-nowrap hidden sm:flex">
+          <div className="flex items-center gap-4 bg-surface-container-low px-4 py-2 rounded-full border border-outline-variant/15 text-xs sm:text-sm font-medium text-on-surface text-center overflow-x-auto whitespace-nowrap w-full md:w-auto">
              <span>🩸 Blood Group: {patient.blood_group || 'N/A'}</span>
              <span className="text-outline-variant">|</span>
              <span>👤 Age: {patient.age || 'N/A'}</span>
