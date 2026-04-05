@@ -54,7 +54,7 @@ export default function Login() {
   return (
     <Card className="border border-outline-variant/15 shadow-ambient">
       <CardHeader className="text-center">
-        <Link href="/" className="font-manrope font-bold text-xl text-primary mb-4 block">MediBook</Link>
+        <Link href="/" className="font-manrope font-bold text-xl text-primary mb-4 block text-center">Hospital Appointments</Link>
         <CardTitle className="text-2xl">Welcome back</CardTitle>
         <CardDescription>Enter your email and password to access your account</CardDescription>
       </CardHeader>

@@ -13,7 +13,7 @@ const manrope = Manrope({
 });
 
 export const metadata: Metadata = {
-  title: "MediBook | Your Health, Simply Scheduled",
+  title: "Hospital Appointments | Your Health, Simply Scheduled",
   description: "Find top-rated doctors and book appointments in seconds.",
 };
 

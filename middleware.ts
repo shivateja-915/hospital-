@@ -32,16 +32,35 @@ export async function middleware(request: NextRequest) {
   } = await supabase.auth.getUser()
 
   const pathname = request.nextUrl.pathname
-  if (user && (pathname === '/login' || pathname.startsWith('/register'))) {
-     // User is already logged in, redirect them to dashboard
-     // Actually need to fetch role, let's just let the application redirect
-  }
-  
-  // Protect routes based on auth status
+
+  // Handle protected routes
   if (!user && (pathname.startsWith('/patient') || pathname.startsWith('/doctor'))) {
     const url = request.nextUrl.clone()
     url.pathname = '/login'
-    return NextResponse.redirect(url)
+    const redirectResponse = NextResponse.redirect(url)
+    // Copy cookies to redirect response
+    supabaseResponse.cookies.getAll().forEach(c => redirectResponse.cookies.set(c))
+    return redirectResponse
+  }
+
+  // Handle authenticated users on login/register pages
+  if (user && (pathname === '/login' || pathname.startsWith('/register'))) {
+    const { data: userData } = await supabase
+      .from("users")
+      .select("role")
+      .eq("id", user.id)
+      .single()
+
+    const url = request.nextUrl.clone()
+    if (userData?.role === 'doctor') {
+      url.pathname = '/doctor/dashboard'
+    } else {
+      url.pathname = '/patient/dashboard'
+    }
+    const redirectResponse = NextResponse.redirect(url)
+    // Copy cookies to redirect response
+    supabaseResponse.cookies.getAll().forEach(c => redirectResponse.cookies.set(c))
+    return redirectResponse
   }
 
   return supabaseResponse

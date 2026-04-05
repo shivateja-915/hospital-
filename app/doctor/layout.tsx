@@ -2,6 +2,7 @@ import Link from "next/link"
 import { createClient } from "@/utils/supabase/server"
 import { redirect } from "next/navigation"
 import FloatingNav from "@/components/shared/FloatingNav"
+import LogoutButton from "@/components/shared/LogoutButton"
 
 export default async function DoctorLayout({ children }: { children: React.ReactNode }) {
   const supabase = await createClient()
@@ -22,17 +23,23 @@ export default async function DoctorLayout({ children }: { children: React.React
     <div className="min-h-screen bg-surface-container-low font-inter">
       <header className="sticky top-0 z-40 bg-surface border-b border-outline-variant/15 px-6 h-16 flex items-center justify-between">
         <div className="flex items-center gap-8">
-          <Link href="/doctor/dashboard" className="font-manrope font-bold text-lg text-secondary">Doctors Portal Doctor Account</Link>
+          <Link href="/doctor/dashboard" className="font-manrope font-bold text-lg text-secondary">Hospital Appointments Doctor Account</Link>
           <nav className="hidden md:flex gap-4">
             <Link href="/doctor/dashboard" className="text-sm font-medium text-on-surface hover:text-secondary transition-colors">Dashboard</Link>
             <Link href="/doctor/appointments" className="text-sm font-medium text-on-surface-variant hover:text-secondary transition-colors">Appointments</Link>
           </nav>
         </div>
-        <div className="flex items-center gap-4">
-          <div className="text-sm font-medium text-on-surface hidden md:block">Dr. {userData?.full_name || 'User'}</div>
-          <div className="w-8 h-8 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-xs uppercase">
-            {(userData?.full_name || 'D').charAt(0)}
+        <div className="flex items-center gap-6">
+          <div className="flex items-center gap-4">
+            <div className="text-right hidden sm:block">
+              <p className="text-sm font-bold text-on-surface leading-none">Dr. {userData?.full_name || 'User'}</p>
+              <p className="text-xs text-on-surface-variant mt-1">Doctor</p>
+            </div>
+            <div className="w-9 h-9 rounded-full bg-secondary-fixed text-on-secondary-fixed flex items-center justify-center font-bold text-sm uppercase border border-secondary/20">
+              {(userData?.full_name || 'D').charAt(0)}
+            </div>
           </div>
+          <LogoutButton />
         </div>
       </header>
       <main className="container mx-auto p-6 md:p-8 pb-32">

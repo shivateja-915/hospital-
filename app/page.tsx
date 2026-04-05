@@ -8,7 +8,7 @@ export default function LandingPage() {
       <header className="sticky top-0 z-50 w-full bg-surface/80 backdrop-blur-xl transition-all h-20">
         <div className="container mx-auto px-6 h-full flex items-center justify-between">
           <Link href="/" className="flex items-center gap-2">
-            <span className="font-manrope font-bold text-2xl tracking-tighter text-on-surface">MediBook</span>
+            <span className="font-manrope font-bold text-2xl tracking-tighter text-on-surface">Hospital Appointments</span>
           </Link>
           <nav className="hidden md:flex gap-8 items-center">
             <Link href="/" className="text-sm font-medium text-on-surface-variant hover:text-primary transition-colors">Home</Link>
@@ -47,9 +47,6 @@ export default function LandingPage() {
             <Button size="lg" asChild className="rounded-full px-8">
               <Link href="/register">Find a Doctor</Link>
             </Button>
-            <Button size="lg" variant="secondary" className="rounded-full px-8 bg-surface-container-highest shadow-ambient">
-              Are you a doctor?
-            </Button>
           </div>
         </section>
 
@@ -63,7 +60,7 @@ export default function LandingPage() {
                 </div>
                 <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-ambient border border-outline-variant/15">
                   <h3 className="font-manrope font-semibold text-2xl mb-4">Top Specialists</h3>
-                  <p className="text-on-surface-variant leading-relaxed">Access a curated network of board-certified professionals. Every doctor on MediBook is vetted for quality and empathy.</p>
+                  <p className="text-on-surface-variant leading-relaxed">Access a curated network of board-certified professionals. Our platform ensures every doctor is vetted for quality and empathy.</p>
                 </div>
                 <div className="bg-surface-container-lowest p-8 rounded-2xl shadow-ambient border border-outline-variant/15">
                   <h3 className="font-manrope font-semibold text-2xl mb-4">24/7 Management</h3>
@@ -77,7 +74,7 @@ export default function LandingPage() {
       {/* Footer */}
       <footer className="bg-surface border-t border-surface-container-hard py-12 px-6">
         <div className="container mx-auto text-center md:text-left flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-on-surface-variant text-sm font-medium">© {new Date().getFullYear()} MediBook Health Systems Inc.</p>
+          <p className="text-on-surface-variant text-sm font-medium">© {new Date().getFullYear()} Hospital Appointments Health Systems Inc.</p>
           <div className="flex flex-wrap gap-6 justify-center">
              <Link href="#" className="text-on-surface-variant text-sm hover:text-primary transition-colors">Privacy Policy</Link>
              <Link href="#" className="text-on-surface-variant text-sm hover:text-primary transition-colors">Terms of Service</Link>

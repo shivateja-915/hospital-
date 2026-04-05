@@ -6,7 +6,7 @@ export default function RoleSelection() {
   return (
     <Card className="border border-outline-variant/15 shadow-ambient">
       <CardHeader className="text-center">
-        <CardTitle className="text-2xl">Join MediBook</CardTitle>
+        <CardTitle className="text-2xl text-center">Join Hospital Appointments</CardTitle>
         <CardDescription>Select your role to get started</CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">
